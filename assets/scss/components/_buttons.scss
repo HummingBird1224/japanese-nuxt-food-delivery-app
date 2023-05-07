@@ -1,0 +1,91 @@
+@use "../global" as g;
+
+// 基本ボタン
+.Common-button {
+  display: inline-block;
+
+  &__child {
+    @include g.gradation-01;
+    color: #fff;
+    font-size: g.fz(33);
+    //font-weight: g.$font_weight-bold;
+    padding: 30px 60px;
+    @include g.border-radius(50px);
+    border: 4px solid #fff;
+    @include g.dropshadow;
+    @include g.easing(.2s, 0s);
+    display: inline-block;
+    width: 100%;
+    font-family: g.$font_family_meiryob;
+    font-weight: g.$font_weight-bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    &:hover {
+      //@include g.opacity(.7);
+    }
+  }
+
+  &--pink {
+    .Common-button__child {
+      @include g.gradation-02;
+    }
+  }
+
+  &--orange {
+    .Common-button__child {
+      @include g.gradation-03;
+    }
+  }
+
+  &--red {
+    .Common-button__child {
+      background: g.$keyColor;
+    }
+  }
+
+
+}
+
+// 基本送信ボタン
+.Common-submitbutton {
+  @include g.gradation-01;
+  color: #fff;
+  font-size: g.fz(33);
+  //font-weight: g.$font_weight-bold;
+  padding: 30px 60px;
+  @include g.border-radius(50px);
+  border: 4px solid #fff;
+  @include g.dropshadow;
+  @include g.easing(.2s, 0s);
+  width: 600px;
+  cursor: pointer;
+  font-family: g.$font_family_meiryob;
+  font-weight: g.$font_weight-bold;
+  letter-spacing: 2px;
+
+  &--pink {
+    @include g.gradation-02;
+  }
+
+  &--orange {
+    @include g.gradation-03;
+  }
+
+  &:hover {
+    //@include g.opacity(.7);
+  }
+}
+
+// 選択用ボタン
+.Select-button {
+  @include g.border-radius(17px);
+  @include g.dropshadow;
+  background: g.$grayColor-5;
+  color: g.$grayColor-1;
+  font-size: g.fz(33);
+  padding: 45px 100px;
+  display: inline-block;
+  @include g.easing(.2s, 0s);
+  position: relative;
+}

@@ -1,0 +1,159 @@
+@use "../global" as g;
+
+.Register-box-wrap {
+  @include g.flex(center, center, wrap);
+  margin-bottom: 30px;
+
+  .Register-box {
+    position: relative;
+    min-width: 27%;
+    margin: 0 40px 20px 0;
+
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(n + 7) {
+      margin-bottom: 0;
+    }
+
+    &__child {
+      width: 100%;
+      @include g.flex(center, flex-start, nowrap);
+      padding: 0 15px 0 7px;
+      background: g.$grayColor-5;
+      color: g.$grayColor-2;
+      @include g.dropshadow;
+      padding: 0px 30px;
+      @include g.border-radius(10px);
+      @include g.easing(.2s, 0s);
+
+      &:hover {
+        //background: g.$accentColor-2;
+        //color: #fff;
+      }
+
+      &--none {
+        color: rgba(g.$grayColor-2, .2);
+
+        &:hover {
+          background: g.$grayColor-5;
+          color: rgba(g.$grayColor-2, .2);
+        }
+      }
+
+      .Register-box-item {
+        font-size: g.fz(33);
+        font-weight: g.$font_weight-bold;
+
+        &.Register-box-id {
+          font-family: g.$font_family_century;
+          font-size: g.fz(90);
+          font-style: italic;
+        }
+
+        &.Register-box-text {
+          position: absolute;
+          bottom: 15px;
+          left: 110px;
+        }
+
+      }
+
+      .Register-box-checked {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        display: block;
+
+        &::before,
+        &::after {
+          background: #fff;
+          content: '';
+          height: 6px;
+          @include g.easing(.3s, 0s);
+          display: none;
+          @include g.border-radius(5px);
+        }
+
+        &::before {
+          width: 30px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include g.rotate(45deg);
+        }
+
+        &::after {
+          width: 60px;
+          position: absolute;
+          bottom: 12px;
+          left: 15px;
+          @include g.rotate(-45deg);
+        }
+      }
+    }
+
+    .Register-box-input {
+      display: none;
+
+      &:checked {
+        ~.Register-box__child {
+          background: g.$accentColor-2;
+          color: #fff;
+
+          .Register-box-checked {
+            @include g.animation(bounce .3s ease-in-out 0s);
+
+            &::before,
+            &::after {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+
+  // BOX8個の場合
+  &--type8 {
+    width: 85%;
+    margin: 0 auto 30px;
+
+    .Register-box {
+      min-width: 48%;
+      margin: 0 0 20px 0;
+
+      &:nth-child(2n) {
+        margin-right: 20px;
+      }
+
+      &:nth-child(n + 9) {
+        display: none;
+      }
+
+      &__child {
+
+        .Register-box-item {
+          font-size: g.fz(33);
+
+          &.Register-box-id {
+            font-size: g.fz(60);
+          }
+
+          &.Register-box-text {}
+
+        }
+
+        .Register-box-checked {
+          bottom: 20px;
+        }
+      }
+    }
+  }
+}

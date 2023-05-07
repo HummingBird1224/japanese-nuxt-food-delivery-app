@@ -1,0 +1,273 @@
+@use "vars" as v;
+@use "animation" as anime;
+@use "functions" as f;
+
+// メディアクエリ設定 _______________________________________
+
+$breakpoints: (
+  legacy: 374px,
+  sp: 1024px,
+  //400px,
+  tab: 1364px,
+  // 768px,
+  lg: 1365px,
+  //1024px,
+);
+
+@mixin lg {
+  @media only screen and (min-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media only screen and (max-width: map-get($breakpoints, tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: map-get($breakpoints, sp)) {
+    @content;
+  }
+}
+
+// Andoroid iPhone4,iPhone5,iPhone5s
+@mixin android {
+  @media only screen and (max-width:map-get($breakpoints, legacy)) {
+    @content;
+  }
+}
+
+
+// 基本設定 _______________________________________
+
+// body
+@mixin body_setting {
+  //font-family: v.$fontJa_family;
+  font-size: v.$baseFontsize;
+  line-height: 1.5;
+  overflow-x: hidden;
+
+  // タブレット 769px〜1079px
+  @media (min-width: 769px) and (max-width: 1079px) {
+    overflow-x: visible;
+  }
+
+  @include tab {
+    //overflow-x: auto;
+  }
+
+  @include sp {
+    //overflow-x: auto;
+  }
+}
+
+// clearfix
+@mixin clearfix {
+  &::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+// SVG画像塗りつぶし
+//  茶色
+@mixin paint-brown {
+  filter: invert(49%) sepia(54%) saturate(432%) hue-rotate(339deg) brightness(91%) contrast(91%);
+}
+
+//  赤色
+@mixin paint-red {
+  filter: invert(13%) sepia(92%) saturate(7465%) hue-rotate(346deg) brightness(94%) contrast(100%);
+}
+
+
+// 白
+@mixin paint-white {
+  filter: invert(99%) sepia(21%) saturate(2%) hue-rotate(295deg) brightness(112%) contrast(101%);
+}
+
+// ピンク
+@mixin paint-pink {
+  filter: invert(38%) sepia(37%) saturate(5752%) hue-rotate(325deg) brightness(96%) contrast(92%);
+}
+
+
+// Flex設定 _______________________________________
+
+// Flex親
+@mixin flex($vertical: center, $horizontal: flex-start, $wrap: wrap) {
+  //display: -webkit-box;
+  //display: box;
+  //display: -webkit-flexbox;
+  //display: flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  // 基本
+  -webkit-flex-flow: row $wrap;
+  flex-flow: row $wrap;
+
+  // 水平中央寄せ
+  -webkit-justify-content: $horizontal;
+  justify-content: $horizontal;
+  // 垂直中央寄せ
+  -webkit-align-items: $vertical;
+  align-items: $vertical;
+}
+
+// Flex子
+@mixin flex-children($value) {
+  -webkit-flex: $value;
+  flex: $value;
+}
+
+// イージング設定 _______________________________________
+@mixin easing($second: 0.3s, $delay: 0s, $action: ease-in-out) {
+  /* transition */
+  -webkit-transition: all $second $action $delay;
+  transition: all $second $action $delay;
+}
+
+// ドロップシャドウ _______________________________________
+//@mixin dropshadow($x: 0, $y: 0, $z: 5px, $color: rgba(0, 0, 0, .2) ) {
+@mixin dropshadow($x: 5px, $y: 5px, $z: 10px, $color: #00000029) {
+  -webkit-box-shadow: $x $y $z $color;
+  box-shadow: $x $y $z $color;
+}
+
+
+@mixin dropshadow-inset($x: 0px, $y: 0px, $z: 2px, $w: 2px, $color: rgba(0, 0, 0, .3)) {
+  -webkit-box-shadow: $x $y $z $w $color inset;
+  box-shadow: $x $y $z $w $color inset;
+}
+
+// 透明度設定 _______________________________________
+@mixin opacity($value: 1) {
+  -webkit-opacity: $value;
+  opacity: $value;
+}
+
+// 角丸 _______________________________________
+@mixin border-radius($value: 5px) {
+  -webkit-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin border-radius-4 ($v1: 5px, $v2: 5px, $v3: 5px, $v4: 5px) {
+  -webkit-border-radius: $v1 $v2 $v3 $v4;
+  border-radius: $v1 $v2 $v3 $v4;
+}
+
+// 回転 _______________________________________
+@mixin rotate($value: 45deg) {
+  -webkit-transform: rotate($value);
+  transform: rotate($value);
+}
+
+// 彩度
+@mixin saturate($saturate: 0%, $brightness: 100%) {
+  -webkit-filter: saturate($saturate) brightness($brightness);
+  filter: saturate($saturate) brightness($brightness);
+}
+
+// グラデーション _______________________________________
+@mixin gradation($deg, $color-1, $color-2) {
+  background: -webkit-linear-gradient($deg, $color-1 0%, $color-2 100%);
+  background: linear-gradient($deg, $color-1 0%, $color-2 100%);
+}
+
+//@mixin gradation-3($deg, $color-1, $color-2, $color-3) {
+//background: -webkit-linear-gradient($deg, $color-1 0%, $color-2 93%, $color-3 100%);
+//background: linear-gradient($deg, $color-1 0%, $color-2 93%, $color-3 100%);
+//}
+
+// グラデーションクラス _______________________________________
+@mixin gradation-01 {
+  background: -webkit-linear-gradient(180deg, v.$gradationColor-1-1 0%, v.$gradationColor-1-2 100%);
+  background: linear-gradient(180deg, v.$gradationColor-1-1 0%, v.$gradationColor-1-2 100%);
+}
+
+@mixin gradation-02 {
+  background: -webkit-linear-gradient(180deg, v.$gradationColor-2-1 0%, v.$gradationColor-2-2 100%);
+  background: linear-gradient(180deg, v.$gradationColor-2-1 0%, v.$gradationColor-2-2 100%);
+}
+
+@mixin gradation-03 {
+  background: -webkit-linear-gradient(180deg, v.$gradationColor-3-1 0%, v.$gradationColor-3-2 100%);
+  background: linear-gradient(180deg, v.$gradationColor-3-1 0%, v.$gradationColor-3-2 100%);
+}
+
+@mixin gradation-04 {
+  background: -webkit-linear-gradient(90deg, v.$keyColor 0%, v.$keyColor 100%);
+  background: linear-gradient(90deg, v.$keyColor 0%, v.$keyColor 100%);
+}
+
+@mixin gradation-05 {
+  background: -webkit-linear-gradient(270deg, v.$keyColor 0%, v.$keyColor 100%);
+  background: linear-gradient(270deg, v.$keyColor 0%, v.$keyColor 100%);
+}
+
+
+
+
+
+// 拡大縮小
+@mixin scale($value: 1) {
+  -webkit-transform: scale($value);
+  transform: scale($value);
+}
+
+// tranlateY
+@mixin translateY($value: 0) {
+  -webkit-transform: translateY($value);
+  transform: translateY($value);
+}
+
+// tranlateX
+@mixin translateX($value: 0) {
+  -webkit-transform: translateX($value);
+  transform: translateX($value);
+}
+
+// tranlateXY ＋ 回転
+@mixin translateXY-rotate($valuex: 0, $valuey: 0, $value2: 0) {
+  -webkit-transform: translateX($valuex) translateY($valuey) rotate($value2);
+  transform: translateX($valuex) translateY($valuey) rotate($value2);
+}
+
+// tranlateX+Y
+@mixin translateXY($valueX: 0, $valueY: 0) {
+  -webkit-transform: translate($valueX, $valueY);
+  transform: translate($valueX, $valueY);
+}
+
+// tranlateZ
+@mixin translateZ($value: 0) {
+  -webkit-transform: translateZ($value);
+  transform: translateZ($value);
+}
+
+// tranlateZ + scale
+@mixin translateZ_scale($value: 0, $scale: 1) {
+  -webkit-transform: translateZ($value) scale($scale);
+  transform: translateZ($value) scale($scale);
+}
+
+// transform なし
+@mixin transform-none {
+  -webkit-transform: none;
+  transform: none;
+}
+
+// backface-visibility
+@mixin backface-visibility($value: hidden) {
+  -webkit-backface-visibility: $value;
+  backface-visibility: $value;
+}

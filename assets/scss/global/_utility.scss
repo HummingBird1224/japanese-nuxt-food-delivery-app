@@ -1,0 +1,29 @@
+@use "vars" as v;
+@use "mixin" as mix;
+@use "functions" as f;
+@use 'animation' as anime;
+
+// 改行
+.u-br {
+  display: block;
+
+  @include mix.tab {
+    //display: inline-block;
+  }
+
+  @include mix.sp {
+    display: inline-block;
+  }
+}
+
+.u-brsp {
+  display: inline-block;
+
+  @include mix.tab {
+    //display: block;
+  }
+
+  @include mix.sp {
+    display: block;
+  }
+}

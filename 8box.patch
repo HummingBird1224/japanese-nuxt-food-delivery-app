@@ -1,0 +1,134 @@
+diff --git a/frontend/assets/scss/components/_box-card.scss b/frontend/assets/scss/components/_box-card.scss
+index 55a9840..0d780bc 100644
+--- a/frontend/assets/scss/components/_box-card.scss
++++ b/frontend/assets/scss/components/_box-card.scss
+@@ -132,11 +132,11 @@
+     margin: 40px auto 0;
+ 
+     .Box-cards__child {
+-      min-width: 48%;
+-      margin: 0 0 20px 0;
++      min-width: 45%;
++      margin: 0 17px 20px 17px;
+ 
+       &:nth-child(2n) {
+-        margin-right: 40px;
++        // margin-right: 40px;
+       }
+ 
+       &::before {}
+@@ -152,11 +152,11 @@
+ 
+         &.Box-card-permission {
+           font-size: g.fz(42);
+-          //top: 5px;
++          top: 5px;
+ 
+           &::after {
+             top: 100%;
+-            width: 300px;
++            width: 280px;
+           }
+         }
+ 
+diff --git a/frontend/assets/scss/components/_register-box.scss b/frontend/assets/scss/components/_register-box.scss
+index 6d998b9..65c240b 100644
+--- a/frontend/assets/scss/components/_register-box.scss
++++ b/frontend/assets/scss/components/_register-box.scss
+@@ -130,7 +130,7 @@
+       margin: 0 0 20px 0;
+ 
+       &:nth-child(2n) {
+-        margin-right: 20px;
++        // margin-right: 20px;
+       }
+ 
+       &:nth-child(n + 9) {
+@@ -138,6 +138,7 @@
+       }
+ 
+       &__child {
++        width: 95%;
+ 
+         .Register-box-item {
+           font-size: g.fz(33);
+@@ -151,6 +152,7 @@
+         }
+ 
+         .Register-box-checked {
++          right: 50px;
+           bottom: 20px;
+         }
+       }
+diff --git a/frontend/pages/staff/index.vue b/frontend/pages/staff/index.vue
+index a151220..dce56d7 100644
+--- a/frontend/pages/staff/index.vue
++++ b/frontend/pages/staff/index.vue
+@@ -92,11 +92,8 @@
+         </div>
+ 
+         <!-- BOX9個の場合 -->
+-        <div class="Box-cards">
+-        <!-- BOX8個の場合 -->
+         <!--
+-        <div class="Box-cards Box-cards--type8">
+-        -->
++        <div class="Box-cards">
+           <StaffBoxCard :box-id="1" :box-delete="boxDeleteOpen" />
+           <StaffBoxCard :box-id="4" :box-delete="boxDeleteOpen" />
+           <StaffBoxCard :box-id="7" :box-delete="boxDeleteOpen" />
+@@ -107,6 +104,18 @@
+           <StaffBoxCard :box-id="6" :box-delete="boxDeleteOpen" />
+           <StaffBoxCard :box-id="9" :box-delete="boxDeleteOpen" />
+         </div>
++        -->
++        <!-- BOX8個の場合 -->
++        <div class="Box-cards Box-cards--type8">
++          <StaffBoxCard :box-id="1" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="5" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="2" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="6" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="3" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="7" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="4" :box-delete="BoxDelete" />
++          <StaffBoxCard :box-id="8" :box-delete="BoxDelete" />
++        </div>
+       </div>
+     </div>
+   </section>
+diff --git a/frontend/pages/staff/registerbox.vue b/frontend/pages/staff/registerbox.vue
+index 0e6bc90..e966914 100644
+--- a/frontend/pages/staff/registerbox.vue
++++ b/frontend/pages/staff/registerbox.vue
+@@ -11,9 +11,9 @@
+ 
+       <!-- ボックス一覧 -->
+       <!-- BOX9個の場合 -->
+-      <div class="Register-box-wrap">
++      <!--<div class="Register-box-wrap">-->
+       <!-- BOX8個の場合 -->
+-      <!--<div class="Register-box-wrap Register-box-wrap--type8">-->
++      <div class="Register-box-wrap Register-box-wrap--type8">
+ 
+         <div class="Register-box" v-for="box of boxesOrdered" :key="box.id" :box-id="box.id">
+           <div v-if="box.stock.length === 0">
+@@ -66,14 +66,13 @@ export default {
+     boxesOrdered() {
+       const orderedBox = []
+       orderedBox.push(this.boxes[0])
+-      orderedBox.push(this.boxes[3])
+-      orderedBox.push(this.boxes[6])
+-      orderedBox.push(this.boxes[1])
+       orderedBox.push(this.boxes[4])
+-      orderedBox.push(this.boxes[7])
+-      orderedBox.push(this.boxes[2])
++      orderedBox.push(this.boxes[1])
+       orderedBox.push(this.boxes[5])
+-      orderedBox.push(this.boxes[8])
++      orderedBox.push(this.boxes[2])
++      orderedBox.push(this.boxes[6])
++      orderedBox.push(this.boxes[3])
++      orderedBox.push(this.boxes[7])
+       return orderedBox
+     }
+   },

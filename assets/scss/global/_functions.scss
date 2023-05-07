@@ -1,0 +1,31 @@
+@use 'vars' as v;
+@use 'animation' as anime;
+
+// SASS:mathモジュール
+@use 'sass:math';
+
+// カラム計算 _______________________________________
+
+@function column2($num) {
+  @return ($num / 2);
+}
+
+@function column3($num) {
+  @return ($num / 3);
+}
+
+@function column4($num) {
+  @return ($num / 4);
+}
+
+// padding・margin計算 _______________________________________
+
+@function space($times: 1, $value: 15px) {
+  @return $value * $times;
+}
+
+// fontSizeをremに変換 ex) font-size: fz(24);  _______________________________________
+
+@function fz($fontSize) {
+  @return math.div($fontSize, v.$baseFontsize_val) * 1rem;
+}

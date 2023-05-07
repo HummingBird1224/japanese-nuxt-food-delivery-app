@@ -1,0 +1,24 @@
+// 各種設定
+@use '../global' as g;
+
+.Bottombar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  padding: 15px 15px;
+  @include g.flex(center, center, nowrap);
+  z-index: 1;
+
+  .Common-button {
+    margin-right: 15px;
+    min-width: 350px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &__child {}
+  }
+}

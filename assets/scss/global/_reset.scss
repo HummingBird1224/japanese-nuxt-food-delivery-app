@@ -1,0 +1,343 @@
+@use "mixin" as mix;
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width
+  /***/
+  : auto;
+
+  @include mix.tab {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    width
+    /***/
+    : auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  @include mix.sp {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    width
+    /***/
+    : auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+}
+
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @include mix.tab {}
+
+  @include mix.sp {}
+
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+li a {
+  @include mix.tab {
+    display: block;
+  }
+
+  @include mix.sp {
+    display: block;
+  }
+}
+
+div {
+
+  // 横px 縦px
+  @include mix.tab {
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+  }
+
+  @include mix.sp {
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+  }
+}
+
+
+// 文字リサイズ解除
+body {
+  @include mix.tab {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  @include mix.sp {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+table {
+  @include mix.tab {
+    table-layout: fixed;
+  }
+
+  @include mix.sp {
+    table-layout: fixed;
+  }
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+// 基本設定
+
+
+a,
+abbr,
+acronym,
+del,
+em,
+ins,
+q,
+span,
+strong,
+ruby,
+code {
+  text-decoration: none;
+}
+
+a img {
+  padding: 0;
+  margin: 0;
+}
+
+abbr,
+acronym {
+  border-style: none none dotted none;
+  cursor: help;
+}
+
+del {
+  //font-family:italic;
+  text-decoration: line-through;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+strong {
+  font-size: 1.8em;
+  font-weight: 900;
+}
+
+rt {
+  font-size: 0.7em;
+}
+
+ins {
+  border-style: solid;
+}
+
+kbd {
+  border-style: outset;
+  border-width: .15em;
+  padding: .1em .1em .1em .1em;
+  margin: 0 .15em 0 .15em;
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+code {
+  padding: 0 .2em 0 .2em;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+blockquote {
+  padding: .5em 1em .5em 1em;
+  font-size: .9em;
+  background: rgba(200, 200, 200, .2);
+}
+
+
+
+address {
+  font-style: normal;
+}
+
+table,
+th,
+td {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+th {
+  font-style: italic;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  //list-style-position:inside;
+  margin: 0;
+  line-height: 1.0;
+}
+
+dt,
+dd {
+  //margin-left:1em;
+}
+
+dd {
+  //padding:.3em;
+}
+
+
+br {
+  letter-spacing: 0;
+}
+
+br.clear {
+  clear: both;
+}
+
+q::before {
+  content: open-quote;
+}
+
+q::after {
+  content: close-quote;
+}
+
+h1::before,
+h1::after,
+h2::before,
+h2::after,
+h3::before,
+h3::after,
+h4::before,
+h4::after,
+h5::before,
+h5::after,
+h6::before,
+h6::after {
+  //margin:.2em;
+  margin: 0;
+}
+
+pre>code {
+  display: block;
+  border-style: dotted;
+  overflow: scroll;
+}
+
+blockquote>p {
+  margin: 0;
+  padding: 0;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {}
+
+li::before,
+dt::before {
+  margin-right: .2em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+hr {
+  margin: 10px 0px 10px 0;
+}
+
+th {
+  font-style: normal !important;
+}
+
+label {
+  cursor: pointer;
+}
+
+span.clear {
+  display: none;
+}
+
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+
+// HTML5用
+
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+section,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  position: relative;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  width
+  /***/
+  : auto;
+}

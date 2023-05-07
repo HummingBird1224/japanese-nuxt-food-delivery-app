@@ -1,0 +1,19 @@
+@use "../global" as g;
+
+
+.Heading {
+  margin: 0;
+  padding: 0;
+
+  &.h3 {
+    font-size: g.fz(45);
+    color: g.$keyColor;
+    font-weight: g.$font_weight-bold;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+
+    .Featuretext {
+      font-size: g.fz(60);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+// 各種設定
+@use '../global' as g;
+
+.Message-box {
+  @include g.border-radius(10px);
+  @include g.dropshadow;
+  background: #fff;
+  padding: 70px 100px;
+  text-align: center;
+  width: 1050px;
+  margin: 90px auto;
+}
+
+.Message-box > p.Content-p {
+  margin: 0;
+}

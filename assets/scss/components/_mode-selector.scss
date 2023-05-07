@@ -1,0 +1,18 @@
+@use "../global" as g;
+
+// トップ・モードセレクト
+.Mode-selector {
+  @include g.flex(center, center, nowrap);
+  margin: 30px 0;
+
+  &__child {
+    margin-right: 30px;
+    width: 350px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+}

@@ -1,0 +1,23 @@
+// 各種設定
+@use '../global' as g;
+
+.Keyboards-key {
+  width: 88px;
+  height: 88px;
+  @include g.dropshadow;
+  background: g.$grayColor-5;
+  color: g.$grayColor-2;
+  font-family: g.$font_family_arial;
+  font-size: g.fz(50);
+  @include g.flex(center, center, nowrap);
+  @include g.border-radius(10px);
+  cursor: pointer;
+  margin: 0 15px 15px 0;
+  @include g.easing(.2s, 0s);
+
+  &:hover,
+  &:focus {
+    background: g.$accentColor-2;
+    color: #fff;
+  }
+}

@@ -1,0 +1,32 @@
+// 各種設定
+@use '../global' as g;
+
+.Wrapper-wrap {
+  //width: g.$containerWidth;
+  //height: g.$containerHeight;
+  width: 100vw;
+  height: 100vh;
+}
+
+section.Wrapper {
+  //width: g.$containerWidth;
+  width: 100vw;
+  //height: calc(g.$containerHeight - 60px);
+  height: calc(100vh - 60px);
+  margin: 0 auto;
+  display: block;
+  position: relative;
+
+  .Main-content {
+    //height: calc(100% - 60px);
+    height: 100%;
+    width: 100%;
+    padding: 160px 30px;
+    position: relative;
+    background: g.$bgColor;
+
+    &--mode-select {
+      padding-top: 200px;
+    }
+  }
+}

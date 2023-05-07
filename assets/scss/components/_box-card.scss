@@ -1,0 +1,179 @@
+@use "../global" as g;
+
+.Box-cards {
+  @include g.flex(center, center, wrap);
+  margin-top: 40px;
+
+  &__child {
+    position: relative;
+    min-width: 30%;
+    margin: 0 40px 20px 0;
+    @include g.flex(center, flex-start, nowrap);
+    padding: 0 15px 0 7px;
+
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(n + 7) {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: g.$keyColor;
+      @include g.border-radius(10px);
+      border: 3px solid g.$keyColor;
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 0px;
+      width: 74%;
+      height: calc(100% - 3px);
+      display: block;
+      background: #fff;
+      @include g.border-radius-4(0, 10px, 10px, 0);
+      z-index: 0;
+    }
+
+    &--none {
+      &::before {
+        background: g.$grayColor-4;
+        border-color: g.$grayColor-4;
+      }
+    }
+
+    .Box-cards-item {
+      z-index: 1;
+
+      &.Box-card-id {
+        font-family: g.$font_family_century;
+        font-size: g.fz(115);
+        @include g.opacity(.8);
+        color: #fff;
+        font-weight: g.$font_weight-bold;
+        font-style: italic;
+      }
+
+      &.Box-card-permission {
+        color: g.$keyColor;
+        font-size: g.fz(42);
+        letter-spacing: 0;
+        font-family: g.$font_family_arial_black;
+        //font-weight: g.$font_weight-black;
+        position: absolute;
+
+        top: 15px;
+
+        left: 120px;
+        width: calc(100% - 120px);
+        text-align: left;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 0;
+          height: 2px;
+          width: 170px;
+          background: g.$keyColor;
+        }
+      }
+
+      &.Box-card-remaining {
+        color: g.$grayColor-1;
+        font-size: g.fz(33);
+        font-weight: g.$font_weight-bold;
+        position: absolute;
+        bottom: 10px;
+        left: 120px;
+      }
+
+      &.Box-card-none {
+        color: g.$grayColor-4;
+        font-size: g.fz(40);
+        left: 120px;
+        position: absolute;
+        font-weight: g.$font_weight-bold;
+      }
+    }
+
+    .Box-card-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 70px;
+      height: 70px;
+      z-index: 1;
+      cursor: pointer;
+
+      &__child {
+        width: 100%;
+        @include g.paint-red;
+      }
+    }
+  }
+
+
+  // BOX8個の場合
+  &--type8 {
+    width: 90%;
+    margin: 40px auto 0;
+
+    .Box-cards__child {
+      min-width: 48%;
+      margin: 0 0 20px 0;
+
+      &:nth-child(2n) {
+        margin-right: 40px;
+      }
+
+      &::before {}
+
+      &::after {
+        width: 85%;
+      }
+
+      .Box-cards-item {
+        &.Box-card-id {
+          font-size: g.fz(90);
+        }
+
+        &.Box-card-permission {
+          font-size: g.fz(42);
+          //top: 5px;
+
+          &::after {
+            top: 100%;
+            width: 300px;
+          }
+        }
+
+        &.Box-card-remaining {
+          font-size: g.fz(33);
+          bottom: 5px;
+        }
+
+        &.Box-card-none {
+          font-size: g.fz(40);
+        }
+      }
+
+      .Box-card-icon {
+        &__child {}
+      }
+    }
+  }
+
+}

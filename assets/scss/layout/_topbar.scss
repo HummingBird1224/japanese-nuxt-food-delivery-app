@@ -1,0 +1,91 @@
+// 各種設定
+@use '../global' as g;
+
+.Wrapper-wrap {
+
+  .Topbar {
+    background: g.$keyColor;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    z-index: 999;
+    position: relative;
+    @include g.flex(center, center, nowrap);
+
+    &__child {
+      width: 100%;
+      @include g.flex(center, center, nowrap);
+
+      .Logo-text {
+        @include g.paint-white;
+        //width: 250px;
+        height: 60px;
+        margin-right: 10px;
+      }
+
+      .Logo-symbol {
+        width: 150px;
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+    }
+
+    .Setting-icon {
+      position: absolute;
+      top: 3px;
+      right: 10px;
+      width: 50px;
+      display: none;
+
+      &__child {
+        @include g.paint-white;
+      }
+    }
+
+    .Prev-icon {
+      position: absolute;
+      top: 3px;
+      left: 20px;
+      width: 50px;
+      display: none;
+
+      &__child {
+        @include g.paint-white;
+      }
+    }
+
+    &[page='/staff'] {
+      .Setting-icon {
+        display: block;
+      }
+    }
+
+    &[page='/staff/'] {
+      .Setting-icon {
+        display: block;
+      }
+    }
+
+    &[page='/staff/registercode'] {
+      .Prev-icon {
+        &--staff {
+          display: block;
+        }
+      }
+    }
+
+    &[page='/customer/auth'] {
+      .Prev-icon {
+        &--customer {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,59 @@
+// 各種設定
+@use '../global' as g;
+
+.Keyboards-input {
+  position: relative;
+
+  .Order-input {
+    height: 86px;
+    line-height: 86px;
+    padding: 0 60px;
+    @include g.border-radius(10px);
+    background: #fff;
+    border: 2px solid g.$keyColor;
+    @include g.dropshadow-inset;
+    width: 80%;
+    font-family: g.$font_family_arial;
+    font-weight: g.$font_weight-black;
+    font-size: g.fz(50);
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 5px auto 30px;
+
+    &::placeholder {
+      color: g.$grayColor-6;
+      font-weight: g.$font_weight-med;
+      font-family: g.$font_family_meiryo;
+    }
+  }
+}
+
+.Keyboards {
+  @include g.clearfix;
+  padding: 0 40px;
+  width: 100%;
+
+  &__child {
+
+    &--l {
+      float: left;
+
+      .Keyboards-column {
+        &:nth-child(even) {
+          margin-left: 40px;
+        }
+      }
+    }
+
+    &--r {
+      float: right;
+      margin-left: 30px;
+    }
+
+    .Keyboards-column {
+      @include g.flex(center, flex-start, wrap);
+
+      &__child {}
+    }
+  }
+}

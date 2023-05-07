@@ -1,0 +1,45 @@
+@use "../global" as g;
+
+.Alert-box {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 80px;
+  width: calc(100% - 160px);
+  background: g.$bgColor-2;
+  padding: 60px;
+  @include g.border-radius(10px);
+  @include g.dropshadow;
+  font-size: g.fz(33);
+  letter-spacing: 5px;
+
+  z-index: 20000;
+
+  .Common-button {
+
+    &__child {
+      width: 300px;
+    }
+  }
+
+  .Content-p {
+    .Featuretext {
+      font-size: g.fz(50);
+    }
+  }
+
+
+}
+
+section.Wrapper {
+
+  &--bg,
+  &--bg-alert,
+  &--bg-fullalert,
+  &--bg-deletealert {
+    .Alert-box {
+      display: block;
+      @include g.animation(fadeIn .2s ease-in-out 0s);
+    }
+  }
+}

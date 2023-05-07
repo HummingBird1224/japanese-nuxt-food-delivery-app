@@ -1,0 +1,82 @@
+// カラー設定 _______________________________________
+
+$keyColor: #e4022b;
+
+$bgColor: #fff;
+$bgColor-2: #ffe8ec;
+
+$gradationColor-1-1: #ED5B76;
+$gradationColor-1-2: #E6667D;
+
+$gradationColor-2-1: #E4022B;
+$gradationColor-2-2: #FF4B6D;
+
+$gradationColor-3-1: #EF6511;
+$gradationColor-3-2: #F89254;
+
+$accentColor-1: #EB3C65;
+$accentColor-2: $keyColor;
+$accentColor-3: #ffd9e2;
+
+$errColor: #fa2424;
+
+$grayColor-1: #070707;
+$grayColor-2: #393939;
+$grayColor-3: #707070;
+$grayColor-4: #838383;
+$grayColor-5: #f8f8f8;
+$grayColor-6: #c2c2c2;
+
+// コンテナ設定 _______________________________________
+$containerWidth: 1280px;
+$containerHeight: 800px;
+
+
+// フォント設定 _______________________________________
+
+@font-face {
+  font-family: 'meiryo';
+  src: url('~/assets/fonts/meiryo/meiryo.woff') format('woff'),
+    url('~/assets/fonts/meiryo/meiryo.ttf') format('truetype');
+
+  font-family: 'meiryob';
+  src: url('~/assets/fonts/meiryob/meiryob.woff') format('woff'),
+    url('~/assets/fonts/meiryob/meiryob.ttf') format('truetype');
+
+  font-family: 'century-gothic';
+  src: url('~/assets/fonts/century-gothic/century-gothic.woff') format('woff'),
+    url('~/assets/fonts/century-gothic/century-gothic.ttf') format('truetype');
+
+  font-family: 'arial';
+  src: url('~/assets/fonts/arial/arial.woff') format('woff'),
+    url('~/assets/fonts/arial/arial.ttf') format('truetype');
+
+  font-family: 'arial_black';
+  src: url('~/assets/fonts/arial_black/arial_black.woff') format('woff'),
+    url('~/assets/fonts/arial_black/arial_black.ttf') format('truetype');
+}
+
+// メイリオ
+$font_family_meiryo: 'meiryo', sans-serif;
+
+// メイリオボールド
+$font_family_meiryob: 'meiryob', sans-serif;
+
+// 欧文
+$font_family_century: 'century-gothic', sans-serif;
+$font_family_arial: 'arial', sans-serif;
+$font_family_arial_black: 'arial_black', sans-serif;
+
+
+
+$font_weight-black: 900;
+$font_weight-bold: 700;
+$font_weight-med: 400;
+$font_weight-light: 100;
+
+// 基本サイズ
+$baseFontsize: 20px; //16px;
+$baseFontsize_val: 20;
+
+// 基本行間
+$baseLineheight: 1.75;

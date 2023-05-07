@@ -1,0 +1,110 @@
+@use "../global" as g;
+
+.Order-box {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 80px;
+  width: calc(100% - 160px);
+  background: g.$accentColor-3;
+  @include g.border-radius-4 (15px, 15px, 0, 0);
+  @include g.dropshadow;
+  font-size: g.fz(33);
+  letter-spacing: 5px;
+  @include g.easing(.3s, 0s);
+
+  z-index: 10000;
+
+  &__header {
+    color: #fff;
+    text-align: center;
+    @include g.gradation-02;
+    //background: g.$accentColor-1;
+    padding: 30px 0;
+    font-size: g.fz(40);
+    font-weight: g.$font_weight-bold;
+    @include g.border-radius-4(15px, 15px, 0, 0);
+
+    .Order-box__header-icon {
+      width: 80px;
+      position: absolute;
+      top: 10px;
+      right: 60px;
+      cursor: pointer;
+
+      &__child {
+        @include g.paint-white;
+      }
+    }
+  }
+
+  &__content {
+    padding: 30px;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 30px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: g.$keyColor;
+      @include g.border-radius(30px);
+    }
+
+    .Order-list {
+      &__child {
+        @include g.flex(center, flex-start, nowrap);
+        position: relative;
+        background: #fff;
+        padding: 15px 30px;
+        @include g.border-radius(15px);
+        border: 5px solid g.$keyColor;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+
+        .Order-list-text {
+          color: g.$grayColor-1;
+          font-weight: g.$font_weight-bold;
+          font-family: g.$font_family_arial_black;
+          letter-spacing: 0;
+          margin-right: 15px;
+        }
+
+        .Order-list-val {
+          color: g.$keyColor;
+          font-family: g.$font_family_arial_black;
+          font-size: g.fz(40);
+          letter-spacing: 1px;
+        }
+
+        .Order-list-icon {
+          position: absolute;
+          top: 5px;
+          right: 15px;
+          width: 70px;
+
+          &__child {
+            @include g.paint-red;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+section.Wrapper {
+  &--bg {
+    .Order-box {
+      display: block;
+      @include g.animation(slideInLeft_s .1s ease-in-out 0s);
+    }
+  }
+}

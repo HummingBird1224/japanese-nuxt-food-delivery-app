@@ -1,0 +1,360 @@
+// 各種設定
+@use '../global' as g;
+
+.Wrapper {
+
+  &--bg,
+  &--bg-alert,
+  &--bg-fullalert,
+  &--bg-deletealert {
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -60px;
+      height: g.$containerHeight;
+      left: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, .6);
+    }
+  }
+
+
+  // トップ・モードセレクト ___________________________________________________
+  &.Page-mode-select {
+
+    .Main-content {
+      padding-top: 150px;
+
+      .Common-button {
+        &.Admin {
+          margin-top: 30px;
+          //float: right;
+
+          .Common-button__child {
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+
+
+  // 管理者ページ ___________________________________________________
+  &.Page-admin {
+
+    .Main-content {
+      padding: 100px 100px;
+
+      .Admin-select {
+        @include g.clearfix;
+        @include g.flex(center, flex-start, wrap);
+        margin-bottom: 30px;
+
+        &__child {
+          min-width: 50%;
+          padding: 0 30px 20px 0;
+
+          &:nth-child(n + 3) {
+            padding-bottom: 0;
+          }
+
+          &:nth-child(2n) {
+            padding-right: 0;
+          }
+
+          .Admin-select-input {
+            display: none;
+
+            &:checked {
+              ~.Select-button {
+                background: g.$accentColor-2;
+                color: #fff;
+
+                .Select-button__checked {
+                  @include g.animation(bounce .3s ease-in-out 0s);
+
+                  &::before,
+                  &::after {
+                    display: block;
+                    //@include g.animation(fadeIn .3s ease-in-out 0s);
+                  }
+                }
+              }
+            }
+          }
+
+          .Select-button {
+            width: 100%;
+
+            &:hover {
+              //background: rgba(g.$accentColor-2, .7);
+              //color: #fff;
+            }
+
+            .Select-button__checked {
+              position: absolute;
+              bottom: 50px;
+              left: 60px;
+              width: 60px;
+              height: 60px;
+              display: block;
+
+              &::before,
+              &::after {
+                background: #fff;
+                content: '';
+                height: 6px;
+                @include g.easing(.3s, 0s);
+                display: none;
+                @include g.border-radius(5px);
+              }
+
+              &::before {
+                width: 30px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @include g.rotate(45deg);
+              }
+
+              &::after {
+                width: 60px;
+                position: absolute;
+                bottom: 12px;
+                left: 15px;
+                @include g.rotate(-45deg);
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+
+  // スタッフ用ページ ___________________________________________________
+  &.Page-staff {
+
+    .Main-content {
+      padding: 90px 30px;
+    }
+
+    // スタッフ用トップ
+    &--index {
+      .Main-content {
+        padding-top: 60px;
+      }
+
+      .Buttons {
+        @include g.flex(center, center, nowrap);
+
+        .Common-button {
+          &:nth-child(1) {
+            margin-right: 40px;
+
+            .Common-button__child {
+              width: 630px;
+            }
+          }
+
+          &:nth-child(2) {
+            .Common-button__child {
+              width: 340px;
+            }
+          }
+
+        }
+      }
+
+    }
+
+    // スタッフ用キーボード画面
+    &--registercode {
+      .Main-content {
+        padding-top: 40px;
+      }
+
+      .Bottombar {
+        .Common-button {
+          &--orange {
+            .Common-button__child {
+              display: none;
+
+              &.Active {
+                display: block;
+                @include g.animation(bounce .3s ease-in-out 0s);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // スタッフ用ボックス選択画面
+    &--registerbox {
+      .Main-content {
+        padding-top: 60px;
+
+        .Heading {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // スタッフ用サンクス画面
+    &--thanks {
+      .Main-content {
+        padding-top: 150px;
+
+        .Common-button {
+          &__child {
+            width: 350px;
+          }
+        }
+      }
+    }
+
+    // スタッフ用ボックスフル画面
+    &--boxfull {
+      .Main-content {
+        padding-top: 150px;
+
+        .Common-button {
+          &__child {
+            width: 350px;
+          }
+        }
+      }
+    }
+
+  }
+
+
+  // お客様用 ___________________________________________________
+  &.Page-customer {
+    .Main-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding-top: 80px;
+      padding-bottom: 0;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(~/assets/img/bg/kfc_bg.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        @include g.opacity(.2);
+        z-index: -1;
+      }
+
+      .Logo {
+        width: 360px;
+        display: block;
+        margin: 0 auto 30px;
+        @include g.opacity(.5);
+
+        &__child {
+          @include g.paint-red;
+        }
+      }
+
+      .Content-p {
+        font-size: g.fz(40);
+        font-weight: g.$font_weight-bold;
+        color: g.$grayColor-2;
+
+        &--en {
+          font-family: g.$font_family_century;
+          font-weight: g.$font_weight-black;
+          font-style: italic;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    // お客様トップ
+    &--index {
+      cursor: pointer;
+
+      .Main-content {
+        padding-top: 150px;
+
+        .Message-box {
+          width: 700px;
+          margin-top: 110px;
+          padding: 20px 100px;
+        }
+      }
+    }
+
+    // お客様用キーボード画面
+    &--auth {
+      .Main-content {
+        padding-top: 40px;
+
+        .Keyboards-input {}
+      }
+
+      .Bottombar {
+        .Common-button {
+          &--orange {
+            .Common-button__child {
+              display: none;
+
+              &.Active {
+                display: block;
+                @include g.animation(bounce .3s ease-in-out 0s);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // お客様用ボックス解錠画面
+    &--box {
+      .Main-content {
+        padding-top: 150px;
+
+        .Content-p {
+          font-weight: g.$font_weight-med;
+        }
+
+        .Box-num {
+          color: g.$accentColor-2;
+          font-weight: g.$font_weight-bold;
+
+          &__feature {
+            font-size: g.fz(50);
+          }
+        }
+
+        .Common-button {
+          margin-top: 60px;
+
+          &__child {
+            width: 450px;
+          }
+        }
+      }
+    }
+
+    // お客様用サンクス画面
+    &--thanks {
+      .Main-content {
+        padding-top: 150px;
+      }
+    }
+  }
+
+
+}
