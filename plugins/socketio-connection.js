@@ -34,7 +34,7 @@ export default ({ store }) => {
     if (msg.event === 'closed') {
       store.commit('customer/closeDoor', msg.doorId) //git test
       // console.log('close')
-      store.dispatch('staff/refreshBoxInfo')
+      // store.dispatch('staff/refreshBoxInfo')
     }
   })
 }
