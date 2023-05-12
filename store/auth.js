@@ -44,7 +44,7 @@ export const actions = {
       }
       throw e
     }
-    commit('setCode', code)
+    commit('setCode', code) //git upload
     const res = await this.$axios.get('/codes/' + code, {
       headers: {
         Authorization: 'Bearer ' + state.accessToken,
