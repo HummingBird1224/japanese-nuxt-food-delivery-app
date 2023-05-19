@@ -14,6 +14,7 @@ export default (context, inject) => {
   voiceThanks.load()
 
   /* 音声再生関数を用意 */
+  /* 音声再生関数を用意 */
   function playClick() { sndClick.cloneNode(true).play() }
   function playSubmit() { sndSubmit.cloneNode(true).play() }
   function playFaul() { sndFaul.cloneNode(true).play() }
