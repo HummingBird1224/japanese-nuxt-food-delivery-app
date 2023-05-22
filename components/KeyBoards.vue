@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     // キーボードクリック
+    //keyboards.vue
     onClickInput (value) {
       if (this.sound) {
         this.$sound.playClick()
