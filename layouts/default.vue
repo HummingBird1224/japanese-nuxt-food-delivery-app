@@ -4,5 +4,5 @@
       <TopBar :page="this.$route.path" />
       <nuxt />
     </section>
-  </div>
+  </div> <!--default vue-->
 </template >
