@@ -15,7 +15,7 @@
       <img src="~/assets/img/icon/cog-solid.svg" class="Setting-icon__child">
     </nuxt-link>
     <!-- 後付けの電池＋時計ユニット（RTC）入れるまでコメントアウト__ここまで -->
-    <!-- github upload -->
+    <!-- github upload again component test-->
 
     <nuxt-link to="/staff" class="Prev-icon Prev-icon--staff">
       <img src="~/assets/img/icon/arrow-left-solid.svg" class="Prev-icon__child">
