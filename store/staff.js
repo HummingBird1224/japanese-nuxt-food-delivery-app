@@ -4,46 +4,8 @@
 export const state = () => ({
   /* 注文番号一覧 */
   codes: null,
-  // codes: [
-  //   {
-  //     id: 'a12',
-  //     box: [1, 0],
-  //   },
-  //   {
-  //     id: 'b23',
-  //     box: [1, 2],
-  //   },
-  //   {
-  //     id: 'admincode',
-  //     box: [2],
-  //   },
-  //   {
-  //     id: 'c43',
-  //     box: [],
-  //   },
-  // ],
   /* 店員さんが操作可能なボックスの情報を保持する */
   boxes: null,
-  // boxes: [
-  //   {
-  //     id: 0,
-  //     door: [{ isOpen: true }, { isOpen: false }, { isOpen: true }],
-  //     stock: ['stock1'],
-  //     permission: ['admincode', 'a12'],
-  //   },
-  //   {
-  //     id: 1,
-  //     door: [{ isOpen: false }, { isOpen: false }, { isOpen: true }],
-  //     stock: ['stock3'],
-  //     permission: ['a12', 'b23'],
-  //   },
-  //   {
-  //     id: 2,
-  //     door: [{ isOpen: true }, { isOpen: true }, { isOpen: false }],
-  //     stock: [],
-  //     permission: ['c43'],
-  //   },
-  // ],
   /* 登録しようとする注文番号 */
   registerCode: null,
   /* 登録する注文番号に紐づけるボックス番号 */
