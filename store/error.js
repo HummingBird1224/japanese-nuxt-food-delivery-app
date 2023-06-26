@@ -19,7 +19,7 @@ export const mutations = {
   },
 }
 
-export const actions = { //error actions
+export const actions = { //error modify
   async set({ commit }, { message , detail }) {
     commit('set', { message, detail })
     await this.$axios.post('/maintenance/error', { message, detail }).catch((err) => {console.log('Error!!!', err)})
