@@ -2,7 +2,7 @@
   <div class="Topbar" :class="{ page }">
 
     <!-- ロゴなしの場合は以下コメントアウト -->
-    <!--
+    <!-- aaaaaaaaa
     <div class="Topbar__child">
       <img src="~/assets/img/logo/kfc_Logo_1952_edited.svg" class="Logo-text">
       <img src="~/assets/img/logo/kfc_logo.png" class="Logo-symbol">
