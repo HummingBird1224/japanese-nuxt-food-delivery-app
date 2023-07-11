@@ -8,7 +8,7 @@
       <img class="Box-card-icon__child" src="~/assets/img/icon/times-circle.svg">
     </div>
   </div>
-  <!-- ボックスなし -->
+  <!-- ボックスなし BOX CARD -->
   <div v-else class="Box-cards__child Box-cards__child--none">
     <div class="Box-card-id Box-cards-item" v-html="boxId"></div>
     <div class="Box-card-none Box-cards-item">ー</div>
